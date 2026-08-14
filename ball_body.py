@@ -1,7 +1,7 @@
 # import random module
 import random
 
-# wright down several ball's remarks
+# write down several ball's remarks
 remarks = [
     "The moon approves, but your Wi-Fi has filed an objection.", 
     "Absolutely. A goose in another dimension has already confirmed it.",
