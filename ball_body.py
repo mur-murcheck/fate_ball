@@ -14,17 +14,19 @@ remarks = [
     "The stars predict success, followed by one extremely educational mistake."
 ]
 
-# print out greetings and salutations for the user
-print("Welcome, traveller!")
-# ask him to type in the question
-print("Ask me any question, what is bothering you lately?")
-
 # function for random choice of the remark
 # the query must be a string and the remark must be a string as well
 def fate(question: str) -> str:
-    answer = random.choice(remarks)
-    return answer
+    prophecy = random.choice(remarks)
+    return prophecy
 
-# the question input
-question = input()
-print(fate(question))
+
+if __name__ == "__main__":
+    # print out greetings and salutations for the user
+    print("Welcome, traveller!")
+    # ask him to type in the question
+    print("Ask me any question, what is bothering you lately?")
+
+    # the question input
+    question = input()
+    print(fate(question))

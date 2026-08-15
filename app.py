@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from ball_body import fate
 
 app = Flask(__name__)
 
@@ -36,9 +37,7 @@ def get_prediction():
             "message": "The question must not contain more than 512 characters"
         }, 422
 
-    return {
-        "prophecy": "Ask again after coffee. Fate refuses to work before sunrise."
-    }
+    return question
 
 
 if __name__ == '__main__':
