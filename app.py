@@ -13,7 +13,17 @@ def health_check():
 
 @app.route("/api/predictions", methods=["POST"])
 def get_prediction():
+    if not request.is_json:
+        return {
+            "message": "Request body must be JSON."
+        },400
+    
     data = request.json
+    if not isinstance(data, dict):
+        return {
+            "message": "Request body must be a JSON object."
+        }, 400
+    
     question = data.get("question")
 
     if question is None:
