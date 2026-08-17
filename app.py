@@ -37,7 +37,10 @@ def get_prediction():
             "message": "The question must not contain more than 512 characters"
         }, 422
 
-    return question
+    prophecy = fate(question)
+    return {
+        "prophecy": prophecy
+    }
 
 
 if __name__ == '__main__':
