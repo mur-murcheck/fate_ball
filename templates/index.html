@@ -7,5 +7,16 @@
 <body>
     <h1>Welcome, traveller!</h1>
     <p>Whisper your question. The stars have already started gossiping.</p>
+    <form id="prediction-form">
+        <label for="question">Your question</label>
+        <textarea id="question" name="question" maxlength="512" required placeholder="Will I be rich?"></textarea>
+        <button type="submit">Ask the Orb</button>
+    </form>
+    <section>
+        <h2>Prediction: </h2>
+        <p id="prediction"></p>
+    </section>
+    <p id="error-message"></p>
+    <script src="/static/app.js"></script>
 </body>
 </html>
