@@ -1,0 +1,122 @@
+body {
+    background-color: #110f1f;
+    color: #f3efff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ball {
+    width: 320px;
+    height: 320px;
+    margin: 24px auto;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+        circle at 35% 30%,
+        #55466f,
+        #181421 38%,
+        #050509 75%
+    );
+    box-shadow:
+        0 0 40px rgba(126, 87, 194, 0.35),
+        inset -28px -32px 50px rgba(0, 0, 0, 0.7);
+}
+
+.ball-window {
+    width: 190px;
+    height: 190px;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid rgba(210, 190, 255, 0.35);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+        circle at 50% 42%,
+        #54389a,
+        #241453 48%,
+        #080418 100%
+    );
+    box-shadow: 
+        0 0 28px rgba(139, 91, 246, 0.55),
+        inset 0 0 35px rgba(0, 0, 0, 0.75);
+}
+
+#prediction {
+    margin: 0;
+    color: #faf7ff;
+    font-size: 15px;
+    line-height: 1.45;
+    text-shadow: 0 0 8px rgba(237, 220, 255, 0.7);
+}
+
+#prediction-form {
+    width: min(420px, 90vw);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+textarea {
+    min-height: 90px;
+    padding: 14px;
+    box-sizing: border-box;
+    border: 1px solid rgba(203, 183, 255, 0.35);
+    border-radius: 14px;
+    background-color: rgba(20, 14, 38, 0.85);
+    color: #f8f488;
+    font: inherit;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #a889ff;
+    box-shadow: 0 0 14px rgba(145, 96, 255, 0.45);
+}
+
+button {
+    padding: 12px 20px;
+    border: 1px solid rgba(224, 211, 255, 0.45);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #7d4ee8, #4b279c);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(126, 80, 220, 0.4);
+    transition: 
+        transform 150ms ease,
+        box-shadow 150ms ease,
+        background 150ms ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 26px rgba(157, 111, 255, 0.7);
+}
+
+button:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+    transform: none;
+    box-shadow: 0 0 10px rgba(126, 80, 220, 0.25);
+}
+
+#error-message {
+    min-height: 24px;
+    margin: 8px 0;
+    color: #ffb4cc;
+    font-weight: 700;
+}

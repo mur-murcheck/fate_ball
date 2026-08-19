@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>FATE BALL</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <h1>Welcome, traveller!</h1>
@@ -10,11 +11,15 @@
     <form id="prediction-form">
         <label for="question">Your question</label>
         <textarea id="question" name="question" maxlength="512" required placeholder="Will I be rich?"></textarea>
-        <button type="submit">Ask the Orb</button>
+        <button type="submit" id="submit-button">Ask the Orb</button>
     </form>
     <section>
         <h2>Prediction: </h2>
-        <p id="prediction"></p>
+        <div class="ball">
+            <div class="ball-window">
+                <p id="prediction"></p>
+            </div>
+        </div>
     </section>
     <p id="error-message"></p>
     <script src="/static/app.js"></script>
