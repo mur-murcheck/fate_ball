@@ -7,6 +7,7 @@ const ballElement = document.querySelector(".ball");
 
 async function handleSubmit(event) {
     event.preventDefault();
+    predictionElement.classList.remove("revealed");
     predictionElement.textContent = "";
     errorElement.textContent = "";
     submitButton.disabled = true;
@@ -31,6 +32,7 @@ async function handleSubmit(event) {
         }
 
         predictionElement.textContent = data.prophecy;
+        predictionElement.classList.add("revealed");
     } catch (error) {
         errorElement.textContent = 
             "The crystal ball has lost its connection to the beyond. Try again.";

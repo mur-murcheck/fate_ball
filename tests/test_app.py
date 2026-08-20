@@ -122,3 +122,15 @@ def test_prophecy_JSON_is_not_an_object():
 
     assert response.status_code == 400
     assert data == {"message": "Request body must be a JSON object."}
+
+
+def test_main_page_content():
+    client = app.test_client()
+    response = client.get("/")
+    html = response.get_data(as_text=True)
+
+
+    assert response.status_code == 200
+    assert "FATE BALL" in html
+    assert "prediction-form" in html
+    assert "/static/app.js" in html

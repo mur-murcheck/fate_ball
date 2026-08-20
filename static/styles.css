@@ -229,6 +229,24 @@ button:disabled {
     }
 }
 
+#prediction.revealed {
+    animation: prophecy-reveal 700ms ease-out both;
+}
+
+@keyframes prophecy-reveal {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(6px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .ball.thinking {
         animation: none;
@@ -239,6 +257,10 @@ button:disabled {
     }
 
     .ball::before {
+        animation: none;
+    }
+
+    #prediction.revealed {
         animation: none;
     }
 }
