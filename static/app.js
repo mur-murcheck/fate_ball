@@ -3,6 +3,7 @@ const questionInput = document.getElementById("question");
 const predictionElement = document.getElementById("prediction");
 const errorElement = document.getElementById("error-message");
 const submitButton = document.getElementById("submit-button");
+const ballElement = document.querySelector(".ball");
 
 async function handleSubmit(event) {
     event.preventDefault();
@@ -10,6 +11,7 @@ async function handleSubmit(event) {
     errorElement.textContent = "";
     submitButton.disabled = true;
     submitButton.textContent = "Consulting the stars...";
+    ballElement.classList.add("thinking");
     const question = questionInput.value.trim();
     const requestBody = {"question": question};
     const jsonBody = JSON.stringify(requestBody);
@@ -36,6 +38,7 @@ async function handleSubmit(event) {
     } finally {
         submitButton.disabled = false;
         submitButton.textContent = "Ask the Orb";
+        ballElement.classList.remove("thinking");
     }
 }
 
