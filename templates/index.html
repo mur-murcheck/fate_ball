@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>FATE BALL</title>
+    <!-- Flask serves project assets from /static by default. -->
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <h1>Welcome, traveller!</h1>
     <p>Whisper your question. The stars have already started gossiping.</p>
+    <!-- JavaScript intercepts this form and sends its value to the JSON API
+         without reloading the page. -->
     <form id="prediction-form">
         <label for="question">Your question</label>
         <textarea id="question" name="question" maxlength="512" required placeholder="Will I be rich?"></textarea>
         <button type="submit" id="submit-button">Ask the Orb</button>
     </form>
+    <!-- The orb is built from nested HTML containers and CSS rather than an
+         image, allowing it to resize and animate cleanly. -->
     <section>
         <h2>The orb whispers... </h2>
         <div class="ball">
             <div class="ball-window">
+                <!-- aria-live announces dynamically inserted prophecies to
+                     assistive technologies without interrupting the user. -->
                 <p id="prediction" aria-live="polite"></p>
             </div>
         </div>
     </section>
+    <!-- role="alert" announces validation and connection errors promptly. -->
     <p id="error-message" role="alert"></p>
+    <!-- Load JavaScript after the HTML elements it queries have been parsed. -->
     <script src="/static/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* Establish the full-page cosmic atmosphere and center the game vertically. */
 body {
     background: 
         radial-gradient(
@@ -34,6 +35,9 @@ body {
     box-sizing: border-box;
 }
 
+/* The outer orb uses layered gradients for stars, reflected light, colored
+   energy, and depth. It remains square at every responsive width so the 50%
+   border radius always produces a circle. */
 .ball {
     width: min(320px, 85vw);
     aspect-ratio: 1;
@@ -83,6 +87,7 @@ body {
         overflow: hidden;
 }
 
+/* A generated decorative layer creates moving energy without extra HTML. */
 .ball::before {
     content: "";
     position: absolute;
@@ -104,6 +109,8 @@ body {
     animation: energy-drift 9s linear infinite;
 }
 
+/* Keep the beginning and end at the same scale to avoid a visible jump when
+   the infinite rotation starts a new cycle. */
 @keyframes energy-drift {
     0% {
         transform: rotate(0deg) scale(0.98);
@@ -119,6 +126,8 @@ body {
 }
 
 
+/* This transparent container keeps prophecy text centered above the animated
+   energy layer. z-index prevents the decoration from covering the text. */
 .ball-window {
     width: 72%;
     aspect-ratio: 1;
@@ -134,6 +143,7 @@ body {
     z-index: 1;
 }
 
+/* Make prophecy text legible against both bright and dark energy regions. */
 #prediction {
     margin: 0;
     color: #faf7ff;
@@ -142,6 +152,7 @@ body {
     text-shadow: 0 0 8px rgba(237, 220, 255, 0.7);
 }
 
+/* Stack the label, textarea, and button while keeping the form responsive. */
 #prediction-form {
     width: min(420px, 90vw);
     display: flex;
@@ -149,6 +160,8 @@ body {
     gap: 12px;
 }
 
+/* The question field inherits the page font and may grow vertically without
+   breaking the form's horizontal layout. */
 textarea {
     min-height: 90px;
     padding: 14px;
@@ -161,12 +174,14 @@ textarea {
     resize: vertical;
 }
 
+/* Preserve a visible keyboard/mouse focus indicator in the visual theme. */
 textarea:focus {
     outline: none;
     border-color: #a889ff;
     box-shadow: 0 0 14px rgba(145, 96, 255, 0.45);
 }
 
+/* Primary action and its interactive states. */
 button {
     padding: 12px 20px;
     border: 1px solid rgba(224, 211, 255, 0.45);
@@ -199,6 +214,7 @@ button:disabled {
     box-shadow: 0 0 10px rgba(126, 80, 220, 0.25);
 }
 
+/* Reserve space so displaying an error does not shift the page layout. */
 #error-message {
     min-height: 24px;
     margin: 8px 0;
@@ -206,10 +222,12 @@ button:disabled {
     font-weight: 700;
 }
 
+/* Applied by JavaScript only while the prediction request is in progress. */
 .ball.thinking {
     animation: orb-thinking 900ms ease-in-out infinite;
 }
 
+/* A subtle pulse and tilt makes the orb appear to be considering the query. */
 @keyframes orb-thinking {
     0%,
     100% {
@@ -229,6 +247,7 @@ button:disabled {
     }
 }
 
+/* Applied after a successful response so each new prophecy emerges from fog. */
 #prediction.revealed {
     animation: prophecy-reveal 700ms ease-out both;
 }
@@ -247,6 +266,8 @@ button:disabled {
     }
 }
 
+/* Respect the operating-system preference for reduced motion. Keep this block
+   last so these overrides win the CSS cascade. */
 @media (prefers-reduced-motion: reduce) {
     .ball.thinking {
         animation: none;
