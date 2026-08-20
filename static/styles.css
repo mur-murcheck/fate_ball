@@ -145,3 +145,13 @@ button:disabled {
         transform: scale(1.02) rotate(1deg);
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .ball.thinking {
+        animation: none;
+    }
+
+    button {
+        transition: none;
+    }
+}
